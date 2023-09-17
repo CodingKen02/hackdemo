@@ -79,6 +79,14 @@
         background-color: #d7d5d5; /* Change background color on hover (you can adjust the color) */
     }
 
+    .iphone-button-image {
+        width: 150px; /* Adjust image width */
+        height: auto; /* Maintain aspect ratio */
+        margin-top: 50px; /* Move the image up */
+        margin-bottom: 20px;
+        animation: fadeIn 2s ease-in-out, fadeIn 2s ease-in-out; /* Add a fade-in animation with no delay */
+    }
+
         /* Animation keyframes for fade-in effect */
         @keyframes fadeIn {
             from {
@@ -227,52 +235,53 @@
                             container.appendChild(finalText);
 
                             // After 5 seconds, transition to the next content
-                            setTimeout(function () {
-                                // Remove the existing content
-                                container.innerHTML = '';
+setTimeout(function () {
+    // Remove the existing content
+    container.innerHTML = '';
 
-                                // Create and append new content (image, text, and buttons)
-                                const newImage4 = document.createElement('img');
-                                newImage4.src = '/static/images/my_icon.png'; // New image source
-                                newImage4.alt = 'Image';
-                                newImage4.className = 'iphone-image';
+    // Create and append new content (image, text, and buttons)
+    const newImage4 = document.createElement('img');
+    newImage4.src = '/static/images/my_icon.png'; // New image source
+    newImage4.alt = 'Image';
+    newImage4.className = 'iphone-button-image'; // Apply the iphone-button-image class to move the image up
 
-                                const newText = document.createElement('p');
-                                newText.className = 'iphone-text';
-                                newText.textContent = `"What should we do today, ${userName}?"`;
+    const newText = document.createElement('p');
+    newText.className = 'iphone-text';
+    newText.textContent = `"What should we do today, ${userName}?"`;
 
-                                // Create and append button options
-                                const button1 = document.createElement('button');
-                                button1.className = 'iphone-button'; // Apply the iphone-button class
-                                button1.textContent = 'Burst the Bubble';
-                                button1.addEventListener('click', function () {
-                                // Handle button click for Option 1
-                                // You can add your logic here
-                                });
+    // Create and append button options
+const button1 = document.createElement('button');
+button1.className = 'iphone-button'; // Apply the iphone-button class
+button1.textContent = 'Burst the Bubble';
+button1.addEventListener('click', function () {
+    // Handle button click for Option 1
+    // You can add your logic here
+});
 
-                                const button2 = document.createElement('button');
-                                button2.className = 'iphone-button'; // Apply the iphone-button class
-                                button2.textContent = 'Talk to Me';
-                                button2.addEventListener('click', function () {
-                                // Handle button click for Option 2
-                                // You can add your logic here
-                                });
+const button2 = document.createElement('button'); // Create button2 element
+button2.className = 'iphone-button'; // Apply the iphone-button class
+button2.textContent = 'Talk to Me';
 
-                                const button3 = document.createElement('button');
-                                button3.className = 'iphone-button'; // Apply the iphone-button class
-                                button3.textContent = 'CBT Quiz';
-                                button3.addEventListener('click', function () {
-                                // Handle button click for Option 3
-                                // You can add your logic here
-                                });
+const button2Anchor = document.createElement('a');
+button2Anchor.href = 'https://console.dialogflow.com/api-client/demo/embedded/77bb89af-71cf-4542-a3cd-b85f293c05c8';
+button2Anchor.target = '_blank'; // Open the link in a new tab
+button2Anchor.appendChild(button2); // Wrap the button with the anchor
 
-                                // Append the new image, text, and buttons
-                                container.appendChild(newImage4);
-                                container.appendChild(newText);
-                                container.appendChild(button1);
-                                container.appendChild(button2);
-                                container.appendChild(button3);
-                            }, 5000); // 5 seconds delay
+const button3 = document.createElement('button');
+button3.className = 'iphone-button'; // Apply the iphone-button class
+button3.textContent = 'Affirmations';
+button3.addEventListener('click', function () {
+    // Handle button click for Option 3
+    // You can add your logic here
+});
+
+// Append the new image, text, and buttons
+container.appendChild(newImage4);
+container.appendChild(newText);
+container.appendChild(button1);
+container.appendChild(button2Anchor); // Append the button with the anchor here
+container.appendChild(button3);
+}, 5000); // 5 seconds delay
                         }
                     });
                 }
